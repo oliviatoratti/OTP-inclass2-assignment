@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assignment6-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: assignment6-app
+  template:
+    metadata:
+      labels:
+        app: assignment6-app
+    spec:
+      containers:
+        - name: app
+          image: oliviaet/assignment6:latest
+          imagePullPolicy: Always
+          env:
+            - name: DB_URL
+              value: jdbc:mariadb://assignment6-mariadb:3306/assignment6
+            - name: DB_USER
+              value: root
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: assignment6-db-secret
+                  key: root-password

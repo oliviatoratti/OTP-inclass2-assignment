@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ar.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ar_SA.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_en_US.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_fi_FI.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ja_JP.properties" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_sv_SE.properties" />
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_en_US.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_fi_FI.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ja_JP.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_sv_SE.properties" />
+      <base-name>MessagesBundle</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ar_SA.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_en_US.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_fi_FI.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ja_JP.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_sv_SE.properties" />
+      <base-name>MessagesBundle</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ar.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_en_US.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_fi_FI.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_ja_JP.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/MessagesBundle_sv_SE.properties" />
+      <base-name>MessagesBundle</base-name>
+    </custom-resource-bundle>
+  </component>
+</project>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="TemperatureController">
+    <content>
+        <VBox fx:id="root"
+              alignment="CENTER"
+              spacing="10"
+              prefWidth="500"
+              style="-fx-padding: 16 20 16 20;">
+
+            <Label fx:id="titleLabel" text="%title"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <ComboBox fx:id="languageComboBox" maxWidth="280"/>
+            <Separator/>
+
+            <Label fx:id="temperatureSectionLabel" text="%temperatureSection"
+                   style="-fx-font-weight: bold;"/>
+
+            <Label fx:id="fromLabel" text="%from"/>
+            <ComboBox fx:id="temperatureFromComboBox" maxWidth="280"/>
+            <Label fx:id="temperatureFromDescription" wrapText="true" maxWidth="280"/>
+
+            <Label fx:id="toLabel" text="%to"/>
+            <ComboBox fx:id="temperatureToComboBox" maxWidth="280"/>
+            <Label fx:id="temperatureToDescription" wrapText="true" maxWidth="280"/>
+
+            <TextField fx:id="temperatureField" maxWidth="280"
+                       promptText="%temperaturePrompt"/>
+            <Button fx:id="convertButton" text="%convert"
+                    onAction="#handleConvert" maxWidth="280"/>
+            <Label fx:id="resultLabel" text="%result" wrapText="true"/>
+
+            <Separator/>
+
+            <Label fx:id="speedSectionLabel" text="%speedSection"
+                   style="-fx-font-weight: bold;"/>
+
+            <Label fx:id="distanceUnitLabel" text="%distanceUnit"/>
+            <ComboBox fx:id="distanceUnitComboBox" maxWidth="280"/>
+            <Label fx:id="distanceDescription" wrapText="true" maxWidth="280"/>
+
+            <TextField fx:id="distanceField" maxWidth="280"
+                       promptText="%distancePrompt"/>
+
+            <Label fx:id="timeUnitLabel" text="%timeUnit"/>
+            <ComboBox fx:id="timeUnitComboBox" maxWidth="280"/>
+            <Label fx:id="timeDescription" wrapText="true" maxWidth="280"/>
+
+            <TextField fx:id="timeField" maxWidth="280"
+                       promptText="%timePrompt"/>
+            <Button fx:id="speedButton" text="%speedButton"
+                    onAction="#handleSpeed" maxWidth="280"/>
+            <Label fx:id="speedResultLabel" text="%speedResult" wrapText="true"/>
+
+            <Separator/>
+
+            <Label fx:id="historyLabel" text="%history"
+                   style="-fx-font-weight: bold;"/>
+            <ListView fx:id="historyListView"
+                      prefWidth="420" prefHeight="130" maxWidth="420"/>
+        </VBox>
+    </content>
+</ScrollPane>
