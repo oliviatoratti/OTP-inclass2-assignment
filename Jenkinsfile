@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'oliviaet/assignment6'
-        PATH = "C:\\Users\\Olivia\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;${env.PATH}"
+        PATH+DOCKER = 'C:\\Users\\Olivia\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin'
     }
 
     stages {
@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat 'call "%MVN%" -B clean verify'
+                bat '"C:\\Program Files\\JetBrains\\IntelliJ IDEA 2026.1\\plugins\\maven\\lib\\maven3\\bin\\mvn.cmd" -B clean verify'
             }
         }
 
