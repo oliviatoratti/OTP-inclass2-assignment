@@ -44,13 +44,3 @@ Run tests and generate the coverage report:
 ## Docker and Kubernetes
 
 Jenkins builds and tests the project, creates a Docker image and pushes it to Docker Hub. The Kubernetes manifests in the `k8s` directory deploy the application and MariaDB to Minikube.
-
-## Screenshots
-
-Add screenshots showing:
-- English interface
-- Japanese interface
-- Arabic interface
-- Successful Jenkins pipeline
-- JaCoCo coverage report
-- Kubernetes pods running
