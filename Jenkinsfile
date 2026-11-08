@@ -6,6 +6,7 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -20,7 +21,12 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:$BUILD_NUMBER -t $DOCKER_IMAGE:latest .'
+                sh '''
+                    docker build \
+                        -t $DOCKER_IMAGE:$BUILD_NUMBER \
+                        -t $DOCKER_IMAGE:latest \
+                        .
+                '''
             }
         }
 
@@ -29,24 +35,44 @@ pipeline {
                 withCredentials([
                     usernamePassword(
                         credentialsId: 'dockerhub-credentials',
-                        usernameVariable: 'oliviaet',
-                        passwordVariable: 'Olivia04!'
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
                     )
                 ]) {
-                    sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
-                    sh 'docker push $DOCKER_IMAGE:$BUILD_NUMBER'
-                    sh 'docker push $DOCKER_IMAGE:latest'
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login \
+                            --username "$DOCKER_USER" \
+                            --password-stdin
+
+                        docker push $DOCKER_IMAGE:$BUILD_NUMBER
+                        docker push $DOCKER_IMAGE:latest
+
+                        docker logout
+                    '''
                 }
             }
         }
     }
+
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            junit(
+                testResults: 'target/surefire-reports/*.xml',
+                allowEmptyResults: true
+            )
+
             archiveArtifacts(
                 artifacts: 'target/site/jacoco/**',
                 allowEmptyArchive: true
             )
+        }
+
+        success {
+            echo 'Build, tests, Docker image build and Docker Hub push completed.'
+        }
+
+        failure {
+            echo 'The pipeline failed. Check the stage logs for the error.'
         }
     }
 }

@@ -124,11 +124,11 @@ public class TemperatureController {
             if ("ar".equals(currentLanguage)) {
                 try (InputStream stream =
                              getClass().getResourceAsStream(
-                                     "/messages_ar.properties")) {
+                                     "/MessagesBundle_ar.properties")) {
 
                     if (stream == null) {
                         throw new IllegalStateException(
-                                "messages_ar.properties was not found."
+                                "/MessagesBundle_ar.properties was not found."
                         );
                     }
 

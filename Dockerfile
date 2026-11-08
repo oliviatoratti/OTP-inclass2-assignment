@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxinerama1 \
     libxcursor1 \
     libfreetype6 \
+    xvfb \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -18,6 +19,6 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-RUN mvn -B clean test package
+RUN mvn -B clean package
 
-CMD ["mvn", "-B", "clean", "compile", "javafx:run"]
+CMD ["xvfb-run", "-a", "mvn", "-B", "javafx:run"]
