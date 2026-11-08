@@ -4,7 +4,6 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'oliviaet/assignment6'
-        PATH+DOCKER = 'C:\\Users\\Olivia\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin'
     }
 
     stages {
@@ -23,6 +22,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 bat '''
+                    set "PATH=C:\\Users\\Olivia\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;%PATH%"
                     docker build -t %DOCKER_IMAGE%:%BUILD_NUMBER% -t %DOCKER_IMAGE%:latest .
                 '''
             }
@@ -38,13 +38,10 @@ pipeline {
                     )
                 ]) {
                     bat '''
-                        @echo off
-                        echo %DOCKER_PASS% | docker login --username "%DOCKER_USER%" --password-stdin
-                        if errorlevel 1 exit /b 1
+                        set "PATH=C:\\Users\\Olivia\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;%PATH%"
+                        echo %DOCKER_PASS% | docker login --username %DOCKER_USER% --password-stdin
                         docker push %DOCKER_IMAGE%:%BUILD_NUMBER%
-                        if errorlevel 1 exit /b 1
                         docker push %DOCKER_IMAGE%:latest
-                        if errorlevel 1 exit /b 1
                         docker logout
                     '''
                 }
