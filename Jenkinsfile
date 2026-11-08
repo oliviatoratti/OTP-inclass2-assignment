@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'oliviaet/assignment6'
-        MVN = 'C:\\Program Files\\JetBrains\\IntelliJ IDEA 2026.1\\plugins\\maven\\lib\\maven3\\bin\\mvn.cmd'
+        PATH = "C:\\Users\\Olivia\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;${env.PATH}"
     }
 
     stages {
