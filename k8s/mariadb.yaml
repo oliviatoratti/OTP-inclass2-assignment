@@ -1,12 +1,4 @@
 apiVersion: v1
-kind: Secret
-metadata:
-  name: assignment6-db-secret
-type: Opaque
-stringData:
-  root-password: Olivia04!
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: assignment6-db-pvc
