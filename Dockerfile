@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxinerama1 \
     libxcursor1 \
     libfreetype6 \
+    fonts-noto-cjk \
+    fonts-noto-core \
+    fontconfig \
     xvfb \
     && rm -rf /var/lib/apt/lists/*
 

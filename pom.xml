@@ -76,6 +76,10 @@
                 <version>0.0.8</version>
                 <configuration>
                     <mainClass>TemperatureApp</mainClass>
+                    <options>
+                        <option>--add-modules</option>
+                        <option>javafx.controls,javafx.fxml</option>
+                    </options>
                 </configuration>
             </plugin>
         </plugins>

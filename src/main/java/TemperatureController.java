@@ -194,6 +194,16 @@ public class TemperatureController {
     private void loadLocalizedUnits() throws SQLException {
         List<MeasurementDAO.UnitInfo> allUnits =
                 measurementDAO.getLocalizedUnits(currentLanguage);
+        System.out.println("Current language: " + currentLanguage);
+        System.out.println("Units returned from database: " + allUnits.size());
+
+        for (MeasurementDAO.UnitInfo unit : allUnits) {
+            System.out.println(
+                    unit.getUnitKey() + " | "
+                            + unit.getCategory() + " | "
+                            + unit.getName()
+            );
+        }
 
         List<MeasurementDAO.UnitInfo> temperatures =
                 new ArrayList<>();
